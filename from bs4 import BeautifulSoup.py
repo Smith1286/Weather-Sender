@@ -28,54 +28,30 @@ print(temp[8].text)
 print(temp[9].text)
 print(temp[10].text)
 
-#import smtplib
+import smtplib
 
-# gmail_user = 'cjnsoftware@gmail.com'
-# gmail_password = 'CJNSOFTWARE'
+gmail_user = 'cjnsoftware@gmail.com'
+gmail_password = 'CJNSOFTWARE'
 
-# sent_from = gmail_user
-# to = ['amazingg500@gmail.com']
-# subject = 'Weather Update'
-# body = 'Daily Weather Update'
+sent_from = gmail_user
+to = ['amazingg500@gmail.com']
+subject = 'Weather Update'
+body = 'Daily Weather Update'
 
-# email_text = """\
-# From: %s
-# To: %s
-# Subject: %s
+email_text = """\
+From: %s
+To: %s
+Subject: %s
 
-# %s
-# """ % (sent_from, ", ".join(to), subject, body)
+%s
+""" % (sent_from, ", ".join(to), subject, body)
 
-# try:
-#     smtp_server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
-#     smtp_server.ehlo()
-#     smtp_server.login(gmail_user, gmail_password)
-#     smtp_server.sendmail(sent_from, to, email_text)
-#     smtp_server.close()
-#     print ("Email sent successfully!")
-# except Exception as ex:
-#     print ("Something went wrong….",ex)
-
-import smtplib 
-try: 
-    #Create your SMTP session 
-    smtp = smtplib.SMTP('smtp.gmail.com', 587) 
-
-   #Use TLS to add security 
-    smtp.starttls() 
-
-    #User Authentication 
-    smtp.login("cjnsoftware@gmail.com","CJNSOFTWARE")
-
-    #Defining The Message 
-    message = "Weather Update" 
-
-    #Sending the Email
-    smtp.sendmail("cjnsoftware@gmail.com", "amazingg500@gmail.com",message) 
-
-    #Terminating the session 
-    smtp.quit() 
-    print ("Email sent successfully!") 
-
-except Exception as ex: 
-    print("Something went wrong....",ex)
+try:
+    smtp_server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+    smtp_server.ehlo()
+    smtp_server.login(gmail_user, gmail_password)
+    smtp_server.sendmail(sent_from, to, email_text)
+    smtp_server.close()
+    print ("Email sent successfully!")
+except Exception as ex:
+    print ("Something went wrong….",ex)
